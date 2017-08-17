@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <title>Contact List App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+</head>
+<body ng-app="myApp">
+    <div class="container" ng-controller="AppCtrl">
+        <h1>Contact List App</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="form-control" ng-model="contact.name"></td>
+                    <td><input class="form-control" ng-model="contact.email"></td>
+                    <td><input class="form-control" ng-model="contact.number"></td>
+                    <td><input type="button" value="Add" class="btn btn-primary" ng-click="addContact()">
+                    <input type="button" value="Update" class="btn btn-primary" ng-click="update()">
+                    <input type="button" value="Clear" class="btn btn-primary" ng-click="clear()"></td>
+
+
+                </tr>
+                <tr ng-repeat="contact in contactList">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.number}}</td>
+                    <td><a class="glyphicon glyphicon-trash" ng-click="remove(contact._id)">&nbsp; &nbsp;&nbsp; &nbsp;
+                    <a class="glyphicon glyphicon-pencil" ng-click="edit(contact._id)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
